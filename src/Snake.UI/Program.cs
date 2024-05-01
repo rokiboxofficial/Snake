@@ -1,4 +1,4 @@
-﻿namespace Snake.UI
+namespace Snake.UI
 {
     class Program
     {
