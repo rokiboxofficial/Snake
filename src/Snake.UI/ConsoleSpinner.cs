@@ -1,4 +1,4 @@
-﻿namespace Snake.UI
+namespace Snake.UI
 {
     internal class ConsoleSpinner
     {
@@ -6,7 +6,7 @@
 
         public int Delay { get; set; } = 400;
 
-        int totalSequences = 0;
+        int sequences = 0;
         int counter;
 
         public ConsoleSpinner()
@@ -17,21 +17,21 @@
                 {"   ", ".  ", ".. ", "..." }
             };
 
-            totalSequences = sequence.GetLength(0);
+            sequences = sequence.GetLength(0);
         }
 
-        public void GetAnimation(string displayMsg = "", int sequenceCode = 0)
+        public void GetDotAnimation(string message = "", int sequenceCode = 0)
         {
             counter++;
 
             Thread.Sleep(Delay);
 
-            sequenceCode = sequenceCode > totalSequences - 1 ? 0 : sequenceCode;
+            sequenceCode = sequenceCode > sequences - 1 ? 0 : sequenceCode;
 
-            int counterValue = counter % 4;
+            var counterValue = counter % 4;
 
-            string fullMessage = displayMsg + sequence[sequenceCode, counterValue];
-            int msglength = fullMessage.Length;
+            var fullMessage = message + sequence[sequenceCode, counterValue];
+            var msglength = fullMessage.Length;
 
             Console.Write(fullMessage);
 

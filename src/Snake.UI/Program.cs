@@ -1,35 +1,29 @@
-﻿namespace Snake.UI
+namespace Snake.UI
 {
     class Program
     {
         public static void Main()
         {
             var message = new ConsoleMessages();
-            var action = new UserActions();
+            var action = new UserActions(message);
 
             message.InitialCommand();
-            message.WriteStartCommadnInstructionMessage();
-            message.WriteStopCommandInstructionMessage();
 
             while (true)
             {
+                message.WriteStartCommadnInstructionMessage();
+                message.WriteStopCommandInstructionMessage();
+
                 var command = Console.ReadLine();
 
-                if (command == "-start")
-                {
+                if (command == "start")
                     action.Start();
-                }
 
-                else if (command == "-stop")
-                {
+                else if (command == "stop")
                     action.Stop();
-                    break;
-                }
 
                 else
-                {
                     message.WriteErrorCommandMessage();
-                }
             }
         }
     }

@@ -1,22 +1,43 @@
-﻿namespace Snake.UI
+namespace Snake.UI
 {
-    public class UserActions
+    internal class UserActions
     {
+        private readonly ConsoleMessages _consoleMessages;
+
+        public UserActions(ConsoleMessages consoleMessages)
+        {
+            _consoleMessages = consoleMessages;
+        }
+
         public void Start()
         {
             Console.Clear();
 
             ConsoleSpinner spinner = new ConsoleSpinner();
 
+            _consoleMessages.WriteStopCommandInstructionMessage();
+
             while (true)
             {
-                spinner.GetAnimation(displayMsg: "Пожалуйста подождите", sequenceCode: 1);
+                spinner.GetDotAnimation(message: "Идёт поиск, пожалуйста подождите", sequenceCode: 1);
+
+                if (Console.KeyAvailable)
+                {
+                    if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                }
             }
         }
 
         public void Stop()
         {
             Console.Clear();
+
+            _consoleMessages.WriteStartCommadnInstructionMessage();
+
             Console.WriteLine("Stop");
         }
     }
