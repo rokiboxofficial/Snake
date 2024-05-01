@@ -19,11 +19,7 @@ namespace Snake.UI
                 if (command == "start")
                     action.Start();
 
-                else if (command == "stop")
-                    action.Stop();
-
-                else
-                    message.WriteErrorCommandMessage();
+                else message.WriteErrorCommandMessage();
             }
         }
     }

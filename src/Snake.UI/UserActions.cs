@@ -31,14 +31,5 @@ namespace Snake.UI
                 }
             }
         }
-
-        public void Stop()
-        {
-            Console.Clear();
-
-            _consoleMessages.WriteStartCommadnInstructionMessage();
-
-            Console.WriteLine("Stop");
-        }
     }
 }
