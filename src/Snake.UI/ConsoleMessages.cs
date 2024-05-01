@@ -12,12 +12,12 @@
 
         public void WriteStartCommadnInstructionMessage()
         {
-            Console.WriteLine("Введите -start, что бы начать поиск игры");
+            Console.WriteLine("Введите start, что бы начать поиск игры");
         }
 
         public void WriteStopCommandInstructionMessage()
         {
-            Console.WriteLine("Введите -stop, что бы прекратить поиск игры");
+            Console.WriteLine("Нажмите на клавишу Enter, что бы прекратить поиск игры");
         }
 
         public void WriteErrorCommandMessage()
